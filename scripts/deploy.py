@@ -1,13 +1,15 @@
 from scripts.utils import ACTIVE_NETWORK, deploy_contract, get_account, get_contract
+from scripts.update_front_end import main as update_front_end
 
 from web3 import Web3
 from brownie import config
+
 from brownie import DappToken, TokenFarm
 
 RESERVED_BALANCE = Web3.toWei(100, "ether")
 
 
-def deploy_token_and_farm(account=None, active_network=ACTIVE_NETWORK):
+def deploy_token_and_farm(update_frontend=False, account=None, active_network=ACTIVE_NETWORK):
     if account is None:
         account = get_account()
 
@@ -47,6 +49,9 @@ def deploy_token_and_farm(account=None, active_network=ACTIVE_NETWORK):
         account=account
     )
 
+    if update_frontend:
+        update_front_end()
+
     return token_farm, dapp_token
 
 
@@ -85,4 +90,4 @@ def transfer_funds(dapp_token, token_farm, account=None, reserved=RESERVED_BALAN
 
 
 def main():
-    token_farm, dapp_token = deploy_token_and_farm()
+    deploy_token_and_farm()
