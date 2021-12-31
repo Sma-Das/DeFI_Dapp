@@ -84,45 +84,5 @@ def transfer_funds(dapp_token, token_farm, account=None, reserved=RESERVED_BALAN
     ).wait(1)
 
 
-# def deploy_token_and_farm(account=None, active_network=ACTIVE_NETWORK):
-#     dapp_token = deploy_contract(
-#         DappToken,
-#         account=account
-#     )
-
-#     token_farm = deploy_contract(
-#         TokenFarm,
-#         account=account,
-#         contract_args=[
-#             dapp_token.address,
-#         ],
-#         publish_source=config["networks"][active_network].get("verify", False),
-#     )
-
-#     transfer_funds(
-#         dapp_token,
-#         token_farm,
-#         account=account,
-#         amount=RESERVED_BALANCE,
-#     )
-
-#     fau_token = get_contract("fau_token", active_network=active_network)
-#     weth_token = get_contract("weth_token", active_network=active_network)
-
-#     allowed_tokens = {
-#         dapp_token: get_contract("dai_usd_pricefeed", active_network=active_network),
-#         fau_token: get_contract("dai_usd_pricefeed", active_network=active_network),
-#         weth_token: get_contract("eth_usd_pricefeed", active_network=active_network),
-#     }
-
-#     add_allowed_tokens(
-#         token_farm,
-#         allowed_tokens,
-#         account=account
-#     )
-
-#     return token_farm, dapp_token
-
-
 def main():
     token_farm, dapp_token = deploy_token_and_farm()
