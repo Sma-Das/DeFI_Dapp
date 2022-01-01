@@ -4,5 +4,4 @@ __pycache__
 .hypothesis/
 build/
 reports/
-front-end-ui
 .pytest_cache
