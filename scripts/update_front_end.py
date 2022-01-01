@@ -5,6 +5,7 @@ import yaml
 CONTRACTS = {
     "DappToken",
     "TokenFarm",
+    "MockERC20",
 }
 
 
@@ -41,7 +42,7 @@ def copy_deployments(deployment_map_file="./build/deployments/map.json", front_e
 
 
 ABI_PATH_FORMAT = "./build/contracts/{}.json"
-FRONT_END_ABI_FORMAT = "./front-end-ui/hooks/abi/{}.json"
+FRONT_END_ABI_FORMAT = "./front-end-ui/src/hooks/abi/{}.json"
 
 
 def copy_abi(src_abi, destination):

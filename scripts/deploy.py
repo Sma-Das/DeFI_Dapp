@@ -90,4 +90,4 @@ def transfer_funds(dapp_token, token_farm, account=None, reserved=RESERVED_BALAN
 
 
 def main():
-    deploy_token_and_farm()
+    deploy_token_and_farm(update_frontend=True)
