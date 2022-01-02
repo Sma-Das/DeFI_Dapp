@@ -10,19 +10,29 @@ import daiImage from "./images/dai.png"
 import { Wallet } from "./Wallet/Wallet"
 import { makeStyles } from "@material-ui/core"
 
+import logo from "./images/logo.png"
+
 export type Token = {
     name: string
     address: string
     image: string
 }
 
-const useStyles = makeStyles((theme) => ({
-    title: {
-        color: theme.palette.common.white,
-        textAlign: "center",
-        padding: theme.spacing(4)
-    }
-}))
+const useStyles = makeStyles(
+    (theme) => (
+        {
+            title: {
+                color: theme.palette.common.white,
+                textAlign: "center",
+                padding: theme.spacing(4)
+            },
+            tokenImg: {
+                width: "64px",
+                alignItems: "left"
+            }
+        }
+    )
+)
 
 export const Main = () => {
 
@@ -65,7 +75,12 @@ export const Main = () => {
 
     return (
         <>
-            <h2 className={classes.title}>My DaPP Manager!</h2>
+            <div>
+                <h2 className={classes.title}>
+                    <img src={logo} className={classes.tokenImg}></img>
+                    My DaPP Manager!
+                </h2>
+            </div>
             <Wallet supportedTokens={supportedTokens} />
         </>
 
