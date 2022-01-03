@@ -1,1 +1,2 @@
 *.json
+!chain_id.json
