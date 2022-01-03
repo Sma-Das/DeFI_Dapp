@@ -15,7 +15,6 @@ export interface StakeProps {
 export const Stake = ({ token }: StakeProps) => {
     const { address: tokenAddress, name } = token
     const { account } = useEthers()
-    const tokenBalance = useTokenBalance(tokenAddress, account)
     const { notifications } = useNotifications()
 
     const [amount, setAmount] = useState<number | string | Array<number | string>>(0)
